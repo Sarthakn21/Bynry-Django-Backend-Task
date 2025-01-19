@@ -2,7 +2,11 @@
 
 ## Overview
 
-This is a Django-based backend project for **Bynry**, a customer service management system. The project allows customers to request services and provides two types of user roles: **Customer** and **Admin**.
+Django application to provide consumer services for gas utilities. The application
+would allow customers to submit service requests online, track the status of their requests,
+and view their account information.
+The application would also provide customer support representatives with a tool to manage
+requests and provide support to customers. The project allows customers to request services and provides two types of user roles: **Customer** and **Admin**.
 
 ### Key Features:
 - **Customer Interface**: Customers can log in to the system, view their dashboard, and submit new service requests. They can also track the status of their ongoing requests.
