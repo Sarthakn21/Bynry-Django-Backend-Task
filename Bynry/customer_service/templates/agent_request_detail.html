@@ -1,0 +1,85 @@
+{% extends 'layout.html' %} {% block title %}
+  Service Request Detail
+{% endblock %} {% block content %}
+  <div class="container py-4">
+    <h1 class="text-center mb-4">Service Request Detail</h1>
+
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card shadow-sm mb-4">
+          <div class="card-header bg-primary text-white">
+            <h5 class="card-title mb-0">Request Information</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <h6 class="fw-bold">Service Type</h6>
+                <p>{{ service_request.service_type }}</p>
+              </div>
+              <div class="col-sm-6 mb-3">
+                <h6 class="fw-bold">User</h6>
+                <p>{{ service_request.user.username }}</p>
+              </div>
+            </div>
+            <div class="mb-3">
+              <h6 class="fw-bold">Details</h6>
+              <p>{{ service_request.details }}</p>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <h6 class="fw-bold">Attached File</h6>
+                {% if service_request.attached_file %}
+                  <a href="{{ service_request.attached_file.url }}" class="btn btn-sm btn-outline-primary" target="_blank">Download</a>
+                {% else %}
+                  <p class="text-muted">No file attached.</p>
+                {% endif %}
+              </div>
+              <div class="col-sm-6 mb-3">
+                <h6 class="fw-bold">Status</h6>
+                <span class="badge bg-info">{{ service_request.get_status_display }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <h6 class="fw-bold">Created At</h6>
+                <p>{{ service_request.created_at|date:'F d, Y H:i' }}</p>
+              </div>
+              <div class="col-sm-6 mb-3">
+                <h6 class="fw-bold">Updated At</h6>
+                <p>{{ service_request.updated_at|date:'F d, Y H:i' }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-header bg-secondary text-white">
+            <h5 class="card-title mb-0">Edit Service Request</h5>
+          </div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %} {% for field in form %}
+                <div class="mb-3">
+                  <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }} : </label>
+                  {{ field }} {% if field.help_text %}
+                    <div class="form-text">{{ field.help_text }}</div>
+                  {% endif %} {% if field.errors %}
+                    <div class="invalid-feedback d-block">
+                      {% for error in field.errors %}
+                        {{ error }}
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+              <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success">Save Changes</button>
+                <a href="{% url 'agent_dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,4 @@
+.venv
+
+/Bynry/*.sqlite3
+/Bynry/media

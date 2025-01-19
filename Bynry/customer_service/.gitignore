@@ -1,0 +1,4 @@
+/templatetags
+
+**/migrations/*.pyc
+**/migrations/__pycache__/

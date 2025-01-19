@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Service Request List
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="text-center mb-4">Your Service Requests</h1>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-2">
+            {% if service_requests %}
+            <div class="table-responsive ">
+                <table class="table table-hover table-lg">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Service Type</th>
+                            <th>Details</th>
+                            <th>Status</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in service_requests %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ request.service_type }}</td>
+                            <td>{{ request.details }}</td>
+                            <td>
+                                <span class="badge rounded-pill 
+                                    {% if request.status == 'Pending' %} bg-warning text-dark
+                                    {% elif request.status == 'In Progress' %} bg-info text-dark
+                                    {% elif request.status == 'Completed' %} bg-success
+                                    {% elif request.status == 'Cancelled' %} bg-danger
+                                    {% else %} bg-secondary {% endif %}">
+                                    {{ request.status }}
+                                </span>
+                            </td>
+                            <td>{{ request.created_at|date:"M d, Y H:i" }}</td>
+                            <td>
+                                <div class="d-inline-flex gap-2">
+                        <a href="{% url 'service_request_edit' request.id %}" class="btn btn-outline-warning btn-sm">
+                            <i class="bi bi-pencil me-1"></i>Edit
+                        </a>
+                        <form method="post" action="{% url 'service_request_delete' request.id %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash me-1"></i>Delete
+                            </button>
+                        </form>
+                    </div>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center text-muted">
+                                <i class="bi bi-inbox-fill me-2"></i>No service requests found.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="text-center text-muted">
+                No service requests found. <a href="{% url 'service_request_create' %}">Create one</a>!
+            </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <a href="{% url 'service_request_create' %}" class="btn btn-primary mt-4">Create New Request</a>
+</div>
+{% endblock %}
