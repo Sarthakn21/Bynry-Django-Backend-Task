@@ -48,7 +48,18 @@ def login_view(request):
 @user_passes_test(is_agent, login_url='login')
 def agent_dashboard(request):
     service_requests = ServiceRequest.objects.all().order_by('-created_at')
-    return render(request, 'agent_dashboard.html', {'service_requests': service_requests})
+    total_requests = service_requests.count()
+    pending_requests = service_requests.filter(status='Pending').count()
+    resolved_requests = service_requests.filter(status='Resolved').count()
+
+    # Pass the data to the template
+    context = {
+        'service_requests': service_requests,
+        'total_requests': total_requests,
+        'pending_requests': pending_requests,
+        'resolved_requests': resolved_requests,
+    }
+    return render(request, 'agent_dashboard.html', context)
 
 @login_required
 @user_passes_test(is_agent, login_url='login')

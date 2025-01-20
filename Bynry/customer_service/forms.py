@@ -13,9 +13,9 @@ class UserRegisterForm(UserCreationForm):
 class ServiceRequestForm(forms.ModelForm):
     class Meta:
         model = ServiceRequest
-        fields = ['service_type', 'details', 'attached_file','status']
+        fields = ['service_type', 'details', 'attached_file','status','phone_number']
 
 class UserServiceRequestForm(forms.ModelForm):
     class Meta:
         model = ServiceRequest
-        fields = ['service_type', 'details','attached_file']  # Exclude 'status'
+        fields = ['service_type', 'details','attached_file','phone_number']  # Exclude 'status'

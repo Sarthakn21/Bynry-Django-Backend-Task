@@ -17,6 +17,7 @@ class ServiceRequest(models.Model):
     service_type = models.CharField(max_length=100)
     details = models.TextField()
     attached_file = models.FileField(upload_to='attachments/', blank=True, null=True)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
