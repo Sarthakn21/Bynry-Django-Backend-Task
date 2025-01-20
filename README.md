@@ -28,14 +28,14 @@ This project was built with the goal of providing an efficient and user-friendly
 ![Screenshot 2025-01-19 224705](https://github.com/user-attachments/assets/a21029f6-66e1-494c-98d6-91c68eb3a56f)
 ![Screenshot 2025-01-19 224244](https://github.com/user-attachments/assets/fca7ab0c-b5ca-4e50-9118-91a98b5e3bc1)
 ![Screenshot 2025-01-19 224715](https://github.com/user-attachments/assets/694901e0-e8ea-498c-b3c1-a88ac4023c18)
-![Screenshot 2025-01-19 224803](https://github.com/user-attachments/assets/5010e93f-84c8-4a96-bb8f-4a53ed86aa06)
-![Screenshot 2025-01-19 225208](https://github.com/user-attachments/assets/4c09cd2f-0739-4e49-8580-3ace465e274f)
-![Screenshot 2025-01-19 225653](https://github.com/user-attachments/assets/039192dc-f619-4c8a-b20e-c40d8bd26217)
+![Screenshot 2025-01-20 100033](https://github.com/user-attachments/assets/d7a07373-70c3-494b-9097-52f23f28f214)
+![Screenshot 2025-01-20 100200](https://github.com/user-attachments/assets/e5cfe01d-9071-4fc7-93dd-94e76e4c1fa3)
+
 ![Screenshot 2025-01-19 225832](https://github.com/user-attachments/assets/f22642fa-748b-47db-8bda-03724057dfcb)
-![Screenshot 2025-01-19 230107](https://github.com/user-attachments/assets/383a181e-68e7-4559-9cbf-36da546d6adb)
-![Screenshot 2025-01-19 230117](https://github.com/user-attachments/assets/f8359254-7344-465f-a20b-b8dc9b7c53aa)
-![Screenshot 2025-01-19 230127](https://github.com/user-attachments/assets/d0920893-9e40-4791-9aa4-f8874f05f162)
-![Screenshot 2025-01-20 000655](https://github.com/user-attachments/assets/86fc6a05-28c3-4a56-8fc5-92426573dc28)
+
+![Screenshot 2025-01-20 093704](https://github.com/user-attachments/assets/70ae971e-6fa0-4157-946e-2a074a2ae605)
+![Screenshot 2025-01-20 093637](https://github.com/user-attachments/assets/d3a105eb-7c5c-4e88-b414-f83b88631023)
+![Screenshot 2025-01-20 093644](https://github.com/user-attachments/assets/7583a1c7-ed24-4ebc-98ba-1e3a7a94c3ff)
 
 
 ## Prerequisites
@@ -82,6 +82,7 @@ To access the Django admin interface, create a superuser by running the followin
 └── sarthakn21-bynry-django-backend-task/
     ├── README.md
     ├── requirements.txt
+    ├── .venv
     └── Bynry/
         ├── manage.py
         ├── requirements.txt
